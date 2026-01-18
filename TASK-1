@@ -1,0 +1,38 @@
+from google.colab import files
+uploaded = files.upload()
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_excel('populatino 2.xlsx')
+df.head()
+print('Available columns:')
+print(df.columns.tolist())
+
+# Plotting the distribution of 'PROVINCE' as an example
+province_counts = df['PROVINCE'].value_counts()
+
+plt.figure(figsize=(10, 6))
+plt.bar(province_counts.index, province_counts.values)
+plt.xlabel('PROVINCE')
+plt.ylabel('Number of Divisions/Districts')
+plt.title('Distribution of Provinces')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+
+# The original code attempted to access 'Gender' and 'Age' columns which are not present.
+# Please check the printed columns above and adjust your code to use existing column names.
+
+# gender_count = df['Gender'].value_counts()
+
+# plt.figure()
+# plt.bar(gender_count.index, gender_count.values)
+# plt.xlabel('Gender')
+# plt.ylabel('Number of People')
+# plt.title('Gender Distribution in Population')
+# plt.show()
+# plt.figure()
+# plt.hist(df['Age'], bins=10)
+# plt.xlabel('Age')
+# plt.ylabel('Frequency')
+# plt.title('Age Distribution in Population')
+# plt.show()
